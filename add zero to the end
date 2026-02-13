@@ -1,0 +1,25 @@
+import java.util.HashSet;
+
+class Solution {
+    public void moveZeroes(int[] nums) {
+        int idx = 0;
+        int count = 0;
+        
+        // First loop: Move all non-zero elements to the front
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 0) {
+                count++;
+                 
+            } else {
+                nums[idx++] = nums[i];
+
+            }
+        }
+        
+        // Second loop: Fill the remaining spots with zeros
+        while (count > 0) {
+            nums[idx++] = 0; // Place zeros at the end
+            count--;
+        }
+    }
+}
