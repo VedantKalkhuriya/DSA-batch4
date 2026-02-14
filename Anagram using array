@@ -1,0 +1,22 @@
+class Solution {
+    public boolean isAnagram(String s, String t) {
+
+        if (s.length() != t.length()) return false;
+
+        int[] count = new int[26];         // creating an array of length 26 
+
+        for (char c : s.toCharArray()) {    
+            count[c - 'a']++;              // we are storing the count of the character in the designated index => c - 'a'it will give the index
+        }                                  // chracter are stored on the base on their ASCII value. ASCII value of a is 97  and c is 99
+                                           // c-'a'= 99-97 =3 (index)
+        for (char c : t.toCharArray()) {
+            count[c - 'a']--;
+        }
+
+        for (int n : count) {
+            if (n != 0) return false;
+        }
+
+        return true;
+    }
+}
