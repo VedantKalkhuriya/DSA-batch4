@@ -1,0 +1,26 @@
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        HashMap<Character,Integer> map = new HashMap<>();
+        if(s.length()!=t.length()) return false;     //if length will not equla it will fail 
+        for(char c :s.toCharArray()){                // add each character with its count in the map
+            map.put(c, map.getOrDefault(c, 0) + 1);
+        }
+        for(char ch :t.toCharArray()){               
+            if(!map.containsKey(ch)){              // we will check char of second string in the map if its not match we will return false
+                return false ;
+            }
+            map.put(ch, map.get(ch) - 1);         // if they match we will decrease the count of character by one 
+
+            if(map.get(ch)==0){
+                map.remove(ch);                   // we will check if the count ==0 we will remove that key ;
+            }
+
+
+        }return map.isEmpty();
+
+
+            
+        
+        
+    }         
+}
