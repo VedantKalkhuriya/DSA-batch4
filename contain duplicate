@@ -1,0 +1,15 @@
+import java.util.HashSet;
+
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        HashSet<Integer> set = new HashSet<>(); // Corrected the spelling of HashSet
+        for (int n : nums) {
+            if (set.contains(n)) { // Corrected the method name from 'contain' to 'contains'
+                return true; // Found a duplicate
+            } else {
+                set.add(n); // Add the number to the set
+            }
+        }
+        return false; // No duplicates found
+    }
+}
